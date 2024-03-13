@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const replaceThis = "Sufi"
 const replaceWith = "Sufiyan"
-const preview = true
+const preview = false
 const folder = __dirname
 
 try{
@@ -11,7 +11,7 @@ try{
             const item = data[index];
             let oldFile = path.join(folder, item)
             let newFile = path.join(folder, item.replaceAll(replaceThis, replaceWith))
-            if(preview){
+            if(!preview){
                 fs.rename(oldFile, newFile, ()=>{
                     console.log("Rename Succesful...")
                 })
